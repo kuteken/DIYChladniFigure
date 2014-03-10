@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High frequency sound maker</title>
+  <script>
+    var WAcontext, oscillator, isPlay;
+
+    initSound();
+
+    function initSound() {
+      WAcontext  = new webkitAudioContext;
+      oscillator = WAcontext.createOscillator();
+      oscillator.connect(WAcontext.destination);
+      isPlay = false;
+    }
+
+    function startSound(hertz) {
+      if (hertz === undefined) {
+        var hertz = parseInt(document.getElementById('hertz').value);
+        if (!hertz) {
+          return false;
+        }
+      }
+
+      if (isPlay) {
+        stopSound();
+      }
+      oscillator.type = 0;
+      oscillator.frequency.value = hertz;
+      oscillator.start(0);
+      isPlay = true;
+    }
+
+    function stopSound() {
+      oscillator.stop(0);
+      initSound();
+    }
+  </script>
+</head>
+<body>
+
+  <h1>High frequency sound maker</h1>
+
+  <div class='soundFormArea'>
+    <input type="text" id='hertz' value='442'> Hz
+    <input type='button' onclick='startSound()' value='sound on'>
+    <input type='button' onclick='stopSound()' value='sound off'>
+  </div><!-- /soundFormArea -->
+
+  <div class='exampleArea'>
+    <span>Example)</span>
+    <input type='button' onclick='startSound(440)' value='440 Hz'>
+    <input type='button' onclick='startSound(2000)' value='2,000 Hz'>
+    <input type='button' onclick='startSound(12000)' value='12,000 Hz'>
+  </div><!-- /exampleArea -->
+
+  <a href="https://github.com/kuteken/DIYChladniFigure" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+</body>
+</html>
