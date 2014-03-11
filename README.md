@@ -15,9 +15,9 @@ http://www.youtube.com/watch?v=FsNTsqm78TM
 
 ### Article
 
-comming soon...
+「おうちでできるクラドニ図形の作り方」動画を作った
 
-http://kuteken.hatenablog.com/
+http://kuteken.hatenablog.com/entry/2014/03/11/155550
 
 ### High frequency sound maker
 
