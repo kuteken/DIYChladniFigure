@@ -9,7 +9,7 @@
     initSound();
 
     function initSound() {
-      WAcontext  = new webkitAudioContext;
+      WAcontext  = new AudioContext || new webkitAudioContext;
       oscillator = WAcontext.createOscillator();
       oscillator.connect(WAcontext.destination);
       isPlay = false;
